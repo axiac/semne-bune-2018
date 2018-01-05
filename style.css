@@ -1,0 +1,102 @@
+/*
+ Theme Name:   Semne Bune 2018
+ Theme URI:    https://github.com/axiac/semne-bune-2018
+ Description:  Semne Bune 2018 Theme
+ Author:       axiac
+ Author URI:   http://axiac.ro
+ Template:     islemag
+ Version:      0.1
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain:  islemag
+*/
+
+
+
+/** Use the other configured fonts (Lato doesn't include glyphs for the Romanian-specific letters) */
+body {
+	font: 400 14px/1.6 Raleway, "Open Sans", Verdana, sans-serif;
+}
+#footer {
+	font-family: Raleway, "Open Sans", Verdana, sans-serif;
+}
+.comments-list .comment-date {
+	font-family: Raleway, "Open Sans", Verdana, sans-serif;
+}
+
+
+/** Semi-transparent background on the main page area */
+#wrapper {
+	background-color: rgba(255, 255, 255, 0.85);
+}
+
+/** Put some white background with fuzzy borders under the section titles */
+.title-bg-line span, .smaller-nav .owl-nav {
+	background-origin: border-box;
+	background: transparent url('bg-patch.png') no-repeat;
+}
+.title-bg-line span {
+	background-position: right -7px center;
+}
+.smaller-nav .owl-nav {
+	background-position: left -5px center;
+}
+
+/** Remove white backgrounds */
+.page-header {
+	background-color: transparent;
+}
+
+
+/** Google search */
+.gsc-control-cse {
+	border: none !important;
+	background: transparent !important;
+	padding: 0 !important;
+}
+table.gsc-search-box td {
+	vertical-align: top !important;
+}
+.gsc-input-box {
+	height: 33px !important;
+}
+input.gsc-input {
+	font-size: 11pt !important;
+}
+input.gsc-input:focus {
+	background: none !important;
+	box-shadow: none !important;
+}
+input.gsc-search-button {
+	margin-left: 0 !important;
+	margin-bottom: -4px !important;
+	background: #009688 !important;
+	padding: 8px !important;
+	width: 32px !important;
+	height: 32px !important;
+}
+
+
+/** WP Calendar */
+#wp-calendar td, #wp-calendar th {
+	text-align: center;
+}
+#wp-calendar #prev {
+	text-align: left;
+}
+#wp-calendar #next {
+	text-align: right;
+}
+
+
+/** Echipa SB: proper aligning */
+figure.wp-caption.alignleft {
+	height: 190px;
+}
+figure.wp-caption.alignleft > hr, figure.wp-caption.alignleft > p {
+	clear: both;
+	margin-top: 40px;
+}
+
+
+/** This is the end of file */
