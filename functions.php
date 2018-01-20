@@ -39,7 +39,7 @@ function sb_action_widgets_init() {
 	register_sidebar(
 		array(
 			'name'          => esc_html__( 'Category Sidebar', 'islemag' ),
-			'id'            => 'semnebune-sidebar-category',
+			'id'            => 'semnebune-2018-category-article',
 			'description'   => 'This sidebar appears on category pages, when it is not empty. When empty, the default sidebar is used instead.',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
@@ -51,7 +51,7 @@ function sb_action_widgets_init() {
 	register_sidebar(
 		array(
 			'name'          => esc_html__( 'Article Sidebar', 'islemag' ),
-			'id'            => 'semnebune-sidebar-article',
+			'id'            => 'semnebune-2018-article-sidebar',
 			'description'   => 'This sidebar appears on article pages, when it is not empty. When empty, the default sidebar is used instead.',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',

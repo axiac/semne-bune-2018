@@ -17,8 +17,8 @@ if ( ! empty( $sidebar_classes ) ) {
  role="complementary">
 	<?php
 
-	if ( is_active_sidebar( 'semnebune-sidebar-article' ) ) {
-		dynamic_sidebar( 'semnebune-sidebar-article' );
+	if ( is_active_sidebar( 'semnebune-2018-article-sidebar' ) ) {
+		dynamic_sidebar( 'semnebune-2018-article-sidebar' );
 	} else {
 		dynamic_sidebar( 'islemag-sidebar' );
 	}

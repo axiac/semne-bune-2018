@@ -4,7 +4,7 @@
  Description:  Semne Bune 2018 Theme
  Author:       axiac
  Author URI:   http://axiac.ro
- Template:     islemag
+ Template:     islemag-mod
  Version:      0.1
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
@@ -98,5 +98,10 @@ figure.wp-caption.alignleft > hr, figure.wp-caption.alignleft > p {
 	margin-top: 40px;
 }
 
+
+/** Fix the line spacing in category widget */
+.sidebar .widget li.cat-post-item a {
+	line-height: 1.5em;
+}
 
 /** This is the end of file */
