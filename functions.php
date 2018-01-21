@@ -152,5 +152,16 @@ function sb_shortcode_year(){
 add_shortcode( 'year', 'sb_shortcode_year' );
 
 
+/**
+ * Forcibly report the comments are not open for any post.
+ * The Facebook plugin is reporting them as open but it doesn't correctly
+ * report the number of comments.
+ * By always returning FALSE, the number of comments is not displayed any more.
+ */
+function sb_filter_comments_open( $open, $post_id = 0) {
+	return FALSE;
+}
+add_filter( 'comments_open', 'sb_filter_comments_open', 100, 2 );
+
 
 // This is the end of file; no closing PHP tag
