@@ -110,13 +110,18 @@ add_filter( 'image_downsize', 'sb_filter_image_downsize', 10, 3 );
  */
 function sb_filter_media_uploader_custom_sizes( array $sizes ) {
 	unset(
+		// Remove banner sizes
 		$sizes['islemag_leaderboard'],
 		$sizes['islemag_3_1_rectangle'],
 		$sizes['islemag_medium_rectangle'],
 		$sizes['islemag_half_page'],
 		$sizes['islemag_square_pop_up'],
 		$sizes['islemag_vertical_rectangle'],
-		$sizes['islemag_ad_125']
+		$sizes['islemag_ad_125'],
+		// Remove unused IsleMag sizes
+		$sizes['islemag_sections_small_thumbnail_no_crop'],
+		$sizes['islemag_section4_big_thumbnail_no_crop'],
+		$sizes['islemag_blog_post_no_crop']
 	);
 
 	return $sizes;
@@ -162,6 +167,15 @@ function sb_filter_comments_open( $open, $post_id = 0) {
 	return FALSE;
 }
 add_filter( 'comments_open', 'sb_filter_comments_open', 100, 2 );
+
+
+/**
+ * Filter the avatar sizes registered by the co-authors-plus plugin
+ */
+function sb_filter_coauthors_guest_author_avatar_sizes(array $sizes) {
+	return array(96);
+}
+add_filter( 'coauthors_guest_author_avatar_sizes', 'sb_filter_coauthors_guest_author_avatar_sizes');
 
 
 // This is the end of file; no closing PHP tag
