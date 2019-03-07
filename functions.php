@@ -149,6 +149,11 @@ function sb_action_enqueue_scripts()
 	wp_enqueue_style($parent_style, get_template_directory_uri().'/style.css');
 	// Then enqueue the style of this theme and make it depend on the parent theme's style
 	wp_enqueue_style('sb-style', get_stylesheet_uri(), array($parent_style), wp_get_theme()->get('Version'));
+	// Replace the old version of FontAwesome provided by the Islemag theme with the latest version from web
+	$fontawesome_style = 'islemag-fontawesome';
+	wp_dequeue_style($fontawesome_style);
+	wp_deregister_style($fontawesome_style);
+	wp_enqueue_style($fontawesome_style, 'https://use.fontawesome.com/releases/v5.7.2/css/all.css', array(), '5.7.2');
 }
 // This is really hackish: hook the enqueuing of the styles after the parent enqueues its styles
 add_action('wp_head', 'sb_action_enqueue_scripts', 5);
@@ -184,6 +189,77 @@ function sb_filter_coauthors_guest_author_avatar_sizes(array $sizes)
 	return array(96);
 }
 add_filter('coauthors_guest_author_avatar_sizes', 'sb_filter_coauthors_guest_author_avatar_sizes');
+
+
+if (! function_exists('islemag_post_entry_icon')) {
+	function islemag_post_entry_icon($context)
+	{
+		$id           = get_the_ID();
+		$icon_classes = get_post_entry_icon_class($id);
+		if ($context === 'footer') {
+			$icon_classes = array_slice($icon_classes, 0, 3);
+		}
+
+		?>
+		<span class="entry-format-container">
+		<?php
+		foreach ($icon_classes as $class) {
+			?>
+			<span class="entry-format"><i class="fa<?php echo " $class"; ?>"></i></span>
+			<?php
+		}
+		?>
+		</span>
+		<?php
+	}
+}
+
+
+/**
+ * @param $id
+ * @return string[]
+ */
+function get_post_entry_icon_class($id)
+{
+	$defaultIcons   = ['fa-bookmark'];
+	$iconByCategory = [
+		// 4207  => 'fa-',                 // Arte (arte)
+		1468  => 'fa-search-plus',      // Anchete (anchete-repere-culturale)
+		6508  => 'fa-film',             // Cinerama (ecranizare-film-cinema)
+		1398  => 'fa-graduation-cap',   // De ce-aș citi? (de-ce-as-citi)
+		1709  => 'fa-music',            // Rockoco (rockoco)
+		1961  => 'fa-theater-masks',    // Teatru (teatru-repere-culturale)
+		66    => 'fa-award',            // Concurs (concurs)
+		23    => 'fa-book-reader',      // Cronică de carte (cronica-recenzie-carte)
+		4206  => 'fa-highlighter',      // Editorial (editorial-2)
+		11002 => 'fa-scroll',           // Fragmente (fragmente)
+		128   => 'fa-microphone-alt',   // Interviu (interviu-semne-bune)
+		1699  => 'fa-lightbulb',        // Mondolit (revista-presei-culturale-internationale)
+		1467  => 'fa-portrait',         // Portrete (dosar-de-scriitor-repere-portrete)
+		147   => 'fa-compass',          // Repere culturale | Evenimente (repere-culturale-evenimente-lansare-carte-film-teatru-expozitie-premiera-debut)
+		5007  => 'fa-newspaper',        // Utile (almanah)
+//
+//		'design' => 'fa-crop',
+//		'foto' => 'fa-camera-retro',
+//		'plastica' => 'fa-palette',
+	];
+
+	$categories = wp_get_post_categories($id, ['fields' => 'ids']);
+
+	$icons = array_filter(
+		array_map(
+			function ($categoryId) use ($iconByCategory) {
+				if (array_key_exists($categoryId, $iconByCategory)) {
+					return $iconByCategory[$categoryId];
+				} else {
+					return NULL;
+				}
+			}, $categories
+		)
+	);
+
+	return count($icons) ? $icons : $defaultIcons;
+}
 
 
 // This is the end of file; no closing PHP tag

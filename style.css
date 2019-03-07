@@ -5,7 +5,7 @@
  Author:       axiac
  Author URI:   http://axiac.ro
  Template:     islemag-mod
- Version:      0.1
+ Version:      0.2
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  islemag
@@ -103,5 +103,43 @@ figure.wp-caption.alignleft > hr, figure.wp-caption.alignleft > p {
 .sidebar .widget li.cat-post-item a {
 	line-height: 1.5em;
 }
+
+/** Icons for all article categories under the article date */
+article .entry-format-container {
+	display: block;
+	position: absolute;
+	z-index: 16;
+	top: 110px;
+	left: 0;
+	width: 60px;
+	color: #fff;
+	background-color: #009688;
+	font-size: 24px;
+	line-height: 60px;
+	text-align: center;
+}
+
+.entry-format-container .entry-format {
+	position: relative;
+	top: 0;
+	left: 0;
+	color: #5f362b;
+	background-color: #dc9771;
+	margin-bottom: -17px;
+}
+
+.entry-box .entry-format-container {
+	top: 74px;
+	color: #f1f1f1;
+	background-color: #3a3a3a;
+	line-height: 50px;
+	width: 50px;
+	font-size: 18px;
+}
+
+.entry-box .entry-format-container .entry-format {
+	margin-bottom: -12px;
+}
+
 
 /** This is the end of file */
