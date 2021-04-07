@@ -27,6 +27,9 @@ function sb_action_after_setup_theme()
 	remove_image_size('islemag_square_pop_up');
 	remove_image_size('islemag_vertical_rectangle');
 	remove_image_size('islemag_ad_125');
+
+	// Remove the "About Islemag" menu entry
+	remove_action('admin_menu', array($GLOBALS['Islemag_Welcome'], 'islemag_welcome_register_menu'));
 }
 add_action('after_setup_theme', 'sb_action_after_setup_theme', 15);
 
@@ -205,7 +208,7 @@ if (! function_exists('islemag_post_entry_icon')) {
 		<?php
 		foreach ($icon_classes as $class) {
 			?>
-			<span class="entry-format"><i class="fa<?php echo " $class"; ?>"></i></span>
+			<span class="entry-format"><i class="fas<?php echo " $class"; ?>"></i></span>
 			<?php
 		}
 		?>
