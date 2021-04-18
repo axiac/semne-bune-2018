@@ -63,6 +63,18 @@ function sb_action_widgets_init()
 			'after_title'   => '</span></h3>',
 		)
 	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__('Article Bottom Bar', 'islemag'),
+			'id'            => 'semnebune-2018-article-bottom-bar',
+			'description'   => 'This bar appears on article pages, just above the author box.',
+			'before_widget' => '<div id="%1$s" class="about-author clearfix widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="title-underblock custom">',
+			'after_title'   => '</h3>',
+		)
+	);
 }
 add_action('widgets_init', 'sb_action_widgets_init');
 

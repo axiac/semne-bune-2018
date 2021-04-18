@@ -5,7 +5,7 @@
  Author:       axiac
  Author URI:   http://axiac.ro
  Template:     islemag-mod
- Version:      0.2.1
+ Version:      0.2.2
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  islemag
@@ -141,5 +141,9 @@ article .entry-format-container {
 	margin-bottom: -12px;
 }
 
+a.redirectioneaza {
+	font-weight: bold;
+	color: #963a1e;
+}
 
 /** This is the end of file */
